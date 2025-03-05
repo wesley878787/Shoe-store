@@ -1,0 +1,466 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Scooby Shoe store</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+            }
+            header .first-row {
+                display: grid;
+                grid-template-columns: 1fr 2fr;
+                align-items: center;
+                width: 100%;
+                background: #000000;
+                color: white;
+                margin-top: 2%;
+                margin-bottom: 3%;
+                padding: 3% 1% 2%;
+            }
+            .hero-btn {
+                display: inline-block;
+                text-decoration: none;
+                color: #fff;
+                border: 1px solid #fff;
+                padding: 12px 34px;
+                font-size: 13px;
+                background: transparent;
+                position: relative;
+                cursor: pointer;
+            }
+            .hero-btn:hover {
+                border: 1px solid #f44336;
+                background: #f44336;
+                transition: 1s;
+            }
+            header .first-row .login {
+                right: 0;
+                position: absolute;
+            }
+            header .second-row {
+                width: 100%;
+                display: grid;
+                grid-template-columns: 2fr 2fr 1fr;
+                align-items: baseline;
+                margin-bottom: -2%;
+                padding: 1% 2% 5%;
+            }
+            header .second-row .name {
+                font-family: cursive;
+                font-size: 14px;
+            }
+            header .second-row .navigation ul {
+                display: flex;
+                gap: 45px;
+            }
+            header .second-row .navigation ul li:hover {
+                border-bottom: 2px solid red;
+                transition: 3s ease-in left;
+            }
+            header .second-row .icons {
+                justify-content: space-evenly;
+            }
+            .landing {
+                width: 100%;
+                height: 100vh;
+                background: linear-gradient(rgba(8, 7, 7, 0.5), rgba(44, 12, 216, 0.5)),
+                    url(images/pexels-rdne-5698859.jpg);
+                background-position: center;
+                background-size: cover;
+            }
+            .landing h1 {
+                color: #fff;
+                position: relative;
+                top: 71%;
+                left: 77%;
+                padding: 5px;
+            }
+            .description {
+                width: 100%;
+                height: 15vh;
+                background: grey;
+            }
+            .description p {
+                text-align: center;
+                position: relative;
+                top: 38%;
+            }
+            .images {
+            }
+            .images .text {
+                margin-bottom: 5%;
+                text-align: center;
+            }
+            .slider-container {
+                position: relative;
+                width: 45%;
+                overflow: hidden;
+                border-radius: 10px;
+                box-shadow: 0px 4px 10px rgba(13, 13, 13, 0.2);
+                background: white;
+                text-align: center;
+                top: 4%;
+                left: 30%;
+                margin-bottom: 9%;
+            }
+            .slider {
+                display: flex;
+                transition: transform 0.5s ease-in-out;
+            }
+            .slide {
+                min-width: 100%;
+            }
+            img {
+                width: 83%;
+                border-bottom: 7px solid #8f9f9f;
+            }
+            .price {
+                font-size: 20px;
+                font-weight: bold;
+                padding: 17px;
+                background: #fff;
+            }
+            .prev,
+            .next {
+                position: absolute;
+                top: 90%;
+                transform: translateY(-50%);
+                background: rgba(0, 0, 0, 0.5);
+                color: white;
+                border: none;
+                padding: 10px;
+                cursor: pointer;
+            }
+            .prev {
+                left: 18px;
+            }
+            .next {
+                right: 18px;
+            }
+            .images .image-row .img img {
+                width: 75%;
+            }
+            .images .image-row .img img:hover {
+                transform: scale(1.02);
+                border-left: 2px solid #b2658e;
+            }
+            .images .image-row {
+                position: relative;
+                top: 21%;
+                left: 6%;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 25px;
+                border-top: 2px solid;
+                margin-bottom: 10%;
+            }
+            .images .image-row .img p {
+                text-align: center;
+                position: relative;
+                left: -9%;
+            }
+            .images .top-img .img {
+                padding: 9% 9% 0% 12%;
+                position: relative;
+                top: 11%;
+            }
+            .images .top-img {
+                display: grid;
+                grid-template-columns: 2fr 2fr 2fr 2fr;
+                position: relative;
+                top: 31%;
+                border-top: 7px groove;
+                padding:;
+            }
+            .images .top-img .text-img {
+                text-align: center;
+                position: relative;
+                left: 6%;
+                top: 7%;
+            }
+            .images .top-img .img img {
+                border-radius: 73px;
+                border: 3px outset rgb(198, 173, 173);
+                width: 90%;
+            }
+            .direction {
+                height: 22vh;
+                width: 100%;
+                margin-top: 10%;
+                background-color: grey;
+                padding: 10% 0% 0% 2%;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 2px;
+                text-align: center;
+            }
+            .about {
+                width: 100%;
+                margin-top: 1%;
+                margin-bottom: 2%;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                text-align: center;
+                gap: 35px;
+                background-color: #cecece;
+                height: 40vh;
+                padding: 6% 0% 3% 0%;
+            }
+            .para{
+                margin-top: 4%;
+            margin-bottom: 5%;
+            }
+            .content {
+                max-height: 50px; /* Adjust height as needed */
+                overflow: hidden;
+                transition: max-height 0.3s ease-in-out;
+            }
+
+            input[type="checkbox"] {
+                display: none;
+            }
+
+            input[type="checkbox"]:checked + .content {
+                max-height: 500px; /* Adjust height for expanded content */
+            }
+
+            .view-more-label {
+                color: blue;
+                cursor: pointer;
+                display: block;
+                margin-top: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="first-row">
+                <div class="number">
+                    <p>Call us:</p>
+                    <p>+254113875806| +25470713288|</p>
+                </div>
+                <div class="login">
+                    <a href="" class="hero-btn"><i class="fa-solid fa-circle-user"></i>Login/Register</a>
+                </div>
+            </div>
+            <div class="second-row">
+                <div class="name">
+                    <h1>Scooby Doo Shoes</h1>
+                </div>
+                <div class="navigation">
+                    <ul>
+                        <li>New</li>
+                        <li>New</li>
+                        <li>New</li>
+                        <li>New</li>
+                        <li>New</li>
+                    </ul>
+                </div>
+                <div class="icons">
+                    <i class="fa-solid fa-bag-shopping" alt="shopping"></i>
+                    <i class="fa-solid fa-cart-shopping" alt="cart"></i>
+                    <i class="fa-solid fa-heart" alt="wishlist"></i>
+                </div>
+            </div>
+        </header>
+        <section class="landing">
+            <h1>Easy Steps</h1>
+            <br />
+            <h1>Comfort feels cool</h1>
+        </section>
+        <section class="description">
+            <p>Loren ipsum dolo et sipan</p>
+        </section>
+        <section class="images">
+            <div class="text">
+                <h1>Our Shoe Collection.</h1>
+                <br />
+                <p>Come and shop from our wide variety of shoes, from sneakers to smart shoes</p>
+            </div>
+            <div class="slider-container">
+                <h1>Sneakers</h1>
+                <div class="slider">
+                    <div class="slide" data-price="$100">
+                        <img src="images/pexels-adrian-dorobantu-989175-2300334.jpg" alt="Shoe 1" />
+                    </div>
+                    <div class="slide" data-price="$120">
+                        <img src="images/pexels-hngstrm-2547007.jpg" alt="Shoe 2" />
+                    </div>
+                    <div class="slide" data-price="$90">
+                        <img src="images/pexels-rdne-5698859.jpg" alt="Shoe 3" />
+                    </div>
+                    <div class="slide" data-price="$90">
+                        <img src="images/pexels-craytive-1478442.jpg" alt="Shoe 3" />
+                    </div>
+                    <div class="slide" data-price="$90">
+                        <img src="images/pexels-mnzoutfits-1598505.jpg" alt="Shoe 3" />
+                    </div>
+                    <div class="slide" data-price="$90">
+                        <img src="images/pexels-nytheone-1070360.jpg" alt="Shoe 3" />
+                    </div>
+                    <div class="slide" data-price="$90">
+                        <img src="images/pexels-hngstrm-2547007.jpg" alt="Shoe 3" />
+                    </div>
+                    <div class="slide" data-price="$90">
+                        <img src="images/pexels-nytheone-1032110.jpg" alt="Shoe 3" />
+                    </div>
+                </div>
+                <div class="price">$100</div>
+                <button class="prev">&#10094;</button>
+                <button class="next">&#10095;</button>
+            </div>
+            <div class="image-row">
+                <h1>Boots Collection</h1>
+                <br />
+                <div class="img">
+                    <img src="images/pexels-nikita-khandelwal-178978-944653.jpg" />
+                    <p>40$</p>
+                </div>
+                <div class="img">
+                    <img src="images/pexels-fotios-photos-1662163.jpg" />
+                    <p>40$</p>
+                </div>
+                <div class="img">
+                    <img src="images/pexels-thatguycraig000-1467574.jpg" />
+                    <p>40$</p>
+                </div>
+                <div class="img">
+                    <img src="images/pexels-joshsorenson-1485166.jpg" />
+                    <p>40$</p>
+                </div>
+            </div>
+            <div class="top-img">
+                <div class="text-img">
+                    <h1>Our Shoe Collection.</h1>
+                    <br />
+                    <p>Come and shop from our wide variety of shoes, from sneakers to smart shoes</p>
+                </div>
+                <div class="img">
+                    <img src="images/pexels-goumbik-292998.jpg" />
+                </div>
+                <div class="img">
+                    <img src="images/pexels-jonathanborba-12031206.jpg" />
+                </div>
+                <div class="img">
+                    <img src="images/pexels-skin99-8069881.jpg" />
+                </div>
+            </div>
+        </section>
+        <section class="direction">
+            <div class="direction1">
+                <h1><i class="fa-solid fa-location-dot"></i>Store Locator</h1>
+                <br />
+                <p>Lets Direct you to our nearest Stores.</p>
+            </div>
+            <div class="direction1">
+                <h1><i class="fa-solid fa-shop"></i>Instant Pickup</h1>
+                <br />
+                <p>Shop Online,Pickup in stores.</p>
+            </div>
+            <div class="direction1">
+                <h1><i class="fa-solid fa-truck-fast"></i>Nation-wide Delivery</h1>
+                <br />
+                <p>We deliver to all the major towns</p>
+            </div>
+        </section>
+        <section class="para">
+            
+            <input type="checkbox" id="toggle" />
+            <div class="content">
+                <p>
+                    Discovering stylish comfortable shoes for women is now easy, whether you're on the hunt for elegant
+                    office footwear or casual options for your weekend wardrobe. At Backyard Shoez, we present a range
+                    of professional and comfortable work shoes for women that seamlessly transition from the boardroom
+                    to your favorite evening restaurant. Meanwhile, our chic and comfortable flats are equally suitable
+                    for running errands or a night out with friends. Our everyday sneakers boast high arch support for
+                    active, all-day wear, while our women's casual sneakers are perfect for a relaxed weekend. Explore
+                    our comfortable sneakers and flats shoes designed with the latest silhouettes and color palettes of
+                    the season. And for those dedicated professionals in the corporate world, our comfortable shoes are
+                    specifically recommended to minimize foot pain caused by over-pronation, ensuring maximum comfort
+                    throughout the day. These office heels feature a comfortable 3 inches stiletto or block heel, extra
+                    insole padding, and soft leather with natural hues, that complement your looks. Say goodbye to
+                    uncomfortable women's shoes. Backyard Shoez offers a stylish selection of creative, on-trend shoes,
+                    from fashionable walking shoes in various colors to round toe flats and ankle boots. Don't settle
+                    for anything less when we have women flatform sandals, kitten heels and loafers in a range of
+                    colours and styles, for all day walking available at Backyard Shoez. Shopping for shoes in Nairobi
+                    has never been easier. Enjoy convenient delivery to other towns, like Eldoret, Meru, Mombasa, Kisumu
+                    or visit our physical stores at multiple locations in Nairobi, including Kilimani, Westlands, Garden
+                    City Mall, Moi Avenue, and Kenyatta Avenue. Whether you are looking for women shoes in Ngong,
+                    Syokimau, Lavington, or Utawala, our customer support will get you the right pair. Elevate your
+                    style and confidence with comfortable shoes for women from Backyard Shoez. Your struggle to find
+                    stylish and comfortable footwear is over. Our range of shoes is designed especially to fit the feet
+                    of women with Backyard Shoez, wide feet or for women who love comfortable shoes.
+                </p>
+            </div>
+            <label for="toggle" class="view-more-label">View More</label>
+        </section>
+        <section class="about">
+            <div class="about1">
+                <h1>About us</h1>
+                <br />
+                <p>
+                    Backyard Shoez has been providing unique footwear to express your style since 2009. Our mission is
+                    to provide our customers with the perfect footwear fit for every occasion. Find your perfect fit
+                    today!
+                </p>
+            </div>
+            <div class="about1">
+                <h1>Collections</h1>
+                <br />
+                <p>heels</p>
+                <br />
+                <p>heels</p>
+                <br />
+                <p>heels</p>
+                <br />
+                <p>heels</p>
+                <br />
+                <p>heels</p>
+                <br />
+            </div>
+            <div class="about1">
+                <h1>Customer Care</h1>
+                <br />
+                <p>Reach Out</p>
+                <br />
+                <p>Reach Out</p>
+                <br />
+                <p>Reach Out</p>
+                <br />
+                <p>Reach Out</p>
+                <br />
+            </div>
+            <div class="about1">
+                <h1>Operating hours</h1>
+                <br />
+                <p>
+                    Monday - Saturday
+                    <br />
+                    09:00 - 19:00
+                </p>
+                <br />
+                <h1>Contact Us</h1>
+                <p>
+                    0720 596 844 | 0738 596 844<br />
+                    sales@backyardshoez.co.ke
+                </p>
+                <br />
+                <h1>Follow Us</h1><br>
+                <p>
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#"><i class="fa-brands fa-snapchat"></i></a>
+                </p>
+            </div>
+        </section>
+        <script src="shoestore.js"></script>
+    </body>
+</html>
