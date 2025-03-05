@@ -7,233 +7,334 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
         <style>
             * {
-                padding: 0;
-                margin: 0;
-            }
-            header .first-row {
-                display: grid;
-                grid-template-columns: 1fr 2fr;
-                align-items: center;
-                width: 100%;
-                background: #000000;
-                color: white;
-                margin-top: 2%;
-                margin-bottom: 3%;
-                padding: 3% 1% 2%;
-            }
-            .hero-btn {
-                display: inline-block;
-                text-decoration: none;
-                color: #fff;
-                border: 1px solid #fff;
-                padding: 12px 34px;
-                font-size: 13px;
-                background: transparent;
-                position: relative;
-                cursor: pointer;
-            }
-            .hero-btn:hover {
-                border: 1px solid #f44336;
-                background: #f44336;
-                transition: 1s;
-            }
-            header .first-row .login {
-                right: 0;
-                position: absolute;
-            }
-            header .second-row {
-                width: 100%;
-                display: grid;
-                grid-template-columns: 2fr 2fr 1fr;
-                align-items: baseline;
-                margin-bottom: -2%;
-                padding: 1% 2% 5%;
-            }
-            header .second-row .name {
-                font-family: cursive;
-                font-size: 14px;
-            }
-            header .second-row .navigation ul {
-                display: flex;
-                gap: 45px;
-            }
-            header .second-row .navigation ul li:hover {
-                border-bottom: 2px solid red;
-                transition: 3s ease-in left;
-            }
-            header .second-row .icons {
-                justify-content: space-evenly;
-            }
-            .landing {
-                width: 100%;
-                height: 100vh;
-                background: linear-gradient(rgba(8, 7, 7, 0.5), rgba(44, 12, 216, 0.5)),
-                    url(https://github.com/wesley878787/Shoe-store/blob/main/pexels-rdne-5698859.jpg?raw=true);
-                background-position: center;
-                background-size: cover;
-            }
-            .landing h1 {
-                color: #fff;
-                position: relative;
-                top: 71%;
-                left: 77%;
-                padding: 5px;
-            }
-            .description {
-                width: 100%;
-                height: 15vh;
-                background: grey;
-            }
-            .description p {
-                text-align: center;
-                position: relative;
-                top: 38%;
-            }
-            .images {
-            }
-            .images .text {
-                margin-bottom: 5%;
-                text-align: center;
-            }
-            .slider-container {
-                position: relative;
-                width: 45%;
-                overflow: hidden;
-                border-radius: 10px;
-                box-shadow: 0px 4px 10px rgba(13, 13, 13, 0.2);
-                background: white;
-                text-align: center;
-                top: 4%;
-                left: 30%;
-                margin-bottom: 9%;
-            }
-            .slider {
-                display: flex;
-                transition: transform 0.5s ease-in-out;
-            }
-            .slide {
-                min-width: 100%;
-            }
-            img {
-                width: 83%;
-                border-bottom: 7px solid #8f9f9f;
-            }
-            .price {
-                font-size: 20px;
-                font-weight: bold;
-                padding: 17px;
-                background: #fff;
-            }
-            .prev,
-            .next {
-                position: absolute;
-                top: 90%;
-                transform: translateY(-50%);
-                background: rgba(0, 0, 0, 0.5);
-                color: white;
-                border: none;
-                padding: 10px;
-                cursor: pointer;
-            }
-            .prev {
-                left: 18px;
-            }
-            .next {
-                right: 18px;
-            }
-            .images .image-row .img img {
-                width: 75%;
-            }
-            .images .image-row .img img:hover {
-                transform: scale(1.02);
-                border-left: 2px solid #b2658e;
-            }
-            .images .image-row {
-                position: relative;
-                top: 21%;
-                left: 6%;
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 25px;
-                border-top: 2px solid;
-                margin-bottom: 10%;
-            }
-            .images .image-row .img p {
-                text-align: center;
-                position: relative;
-                left: -9%;
-            }
-            .images .top-img .img {
-                padding: 9% 9% 0% 12%;
-                position: relative;
-                top: 11%;
-            }
-            .images .top-img {
-                display: grid;
-                grid-template-columns: 2fr 2fr 2fr 2fr;
-                position: relative;
-                top: 31%;
-                border-top: 7px groove;
-                padding:;
-            }
-            .images .top-img .text-img {
-                text-align: center;
-                position: relative;
-                left: 6%;
-                top: 7%;
-            }
-            .images .top-img .img img {
-                border-radius: 73px;
-                border: 3px outset rgb(198, 173, 173);
-                width: 90%;
-            }
-            .direction {
-                height: 22vh;
-                width: 100%;
-                margin-top: 10%;
-                background-color: grey;
-                padding: 10% 0% 0% 2%;
-                display: grid;
-                grid-template-columns: 1fr 1fr 1fr;
-                gap: 2px;
-                text-align: center;
-            }
-            .about {
-                width: 100%;
-                margin-top: 1%;
-                margin-bottom: 2%;
-                display: grid;
-                grid-template-columns: 1fr 1fr 1fr 1fr;
-                text-align: center;
-                gap: 35px;
-                background-color: #cecece;
-                height: 40vh;
-                padding: 6% 0% 3% 0%;
-            }
-            .para{
-                margin-top: 4%;
-            margin-bottom: 5%;
-            }
-            .content {
-                max-height: 50px; /* Adjust height as needed */
-                overflow: hidden;
-                transition: max-height 0.3s ease-in-out;
-            }
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 
-            input[type="checkbox"] {
-                display: none;
-            }
+header .first-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    width: 100%;
+    background: #000000;
+    color: white;
+    margin-top: 2%;
+    margin-bottom: 3%;
+    padding: 3% 1% 2%;
+}
 
-            input[type="checkbox"]:checked + .content {
-                max-height: 500px; /* Adjust height for expanded content */
-            }
+.hero-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 12px 34px;
+    font-size: 13px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
 
-            .view-more-label {
-                color: blue;
-                cursor: pointer;
-                display: block;
-                margin-top: 15px;
-            }
+.hero-btn:hover {
+    border: 1px solid #f44336;
+    background: #f44336;
+    transition: 1s;
+}
+
+header .first-row .login {
+    right: 0;
+    position: absolute;
+}
+
+header .second-row {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr;
+    align-items: baseline;
+    margin-bottom: -2%;
+    padding: 1% 2% 5%;
+}
+
+header .second-row .name {
+    font-family: cursive;
+    font-size: 14px;
+}
+
+header .second-row .navigation ul {
+    display: flex;
+    gap: 45px;
+    flex-wrap: wrap;
+}
+
+header .second-row .navigation ul li:hover {
+    border-bottom: 2px solid red;
+    transition: 3s ease-in left;
+}
+
+header .second-row .icons {
+    justify-content: space-evenly;
+}
+
+.landing {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgba(8, 7, 7, 0.5), rgba(44, 12, 216, 0.5)),
+        url(https://github.com/wesley878787/Shoe-store/blob/main/pexels-rdne-5698859.jpg?raw=true);
+    background-position: center;
+    background-size: cover;
+}
+
+.landing h1 {
+    color: #fff;
+    position: relative;
+    top: 71%;
+    left: 77%;
+    padding: 5px;
+}
+
+.description {
+    width: 100%;
+    height: 15vh;
+    background: grey;
+}
+
+.description p {
+    text-align: center;
+    position: relative;
+    top: 38%;
+}
+
+.slider-container {
+    position: relative;
+    width: 45%;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(13, 13, 13, 0.2);
+    background: white;
+    text-align: center;
+    top: 4%;
+    left: 30%;
+    margin-bottom: 9%;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+}
+
+img {
+    width: 83%;
+    border-bottom: 7px solid #8f9f9f;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 17px;
+    background: #fff;
+}
+
+.prev,
+.next {
+    position: absolute;
+    top: 90%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.prev {
+    left: 18px;
+}
+
+.next {
+    right: 18px;
+}
+
+.images .image-row .img img {
+    width: 75%;
+}
+
+.images .image-row .img img:hover {
+    transform: scale(1.02);
+    border-left: 2px solid #b2658e;
+}
+
+.images .image-row {
+    position: relative;
+    top: 21%;
+    left: 6%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    border-top: 2px solid;
+    margin-bottom: 10%;
+}
+
+.images .image-row .img p {
+    text-align: center;
+    position: relative;
+    left: -9%;
+}
+
+.images .top-img .img {
+    padding: 9% 9% 0% 12%;
+    position: relative;
+    top: 11%;
+}
+
+.images .top-img {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    position: relative;
+    top: 31%;
+    border-top: 7px groove;
+}
+
+.images .top-img .text-img {
+    text-align: center;
+    position: relative;
+    left: 6%;
+    top: 7%;
+}
+
+.images .top-img .img img {
+    border-radius: 73px;
+    border: 3px outset rgb(198, 173, 173);
+    width: 90%;
+}
+
+.direction {
+    height: 22vh;
+    width: 100%;
+    margin-top: 10%;
+    background-color: grey;
+    padding: 10% 0% 0% 2%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px;
+    text-align: center;
+}
+
+.about {
+    width: 100%;
+    margin-top: 1%;
+    margin-bottom: 2%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    text-align: center;
+    gap: 35px;
+    background-color: #cecece;
+    height: 40vh;
+    padding: 6% 0% 3% 0%;
+}
+
+.para {
+    margin-top: 4%;
+    margin-bottom: 5%;
+}
+
+.content {
+    max-height: 50px;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"]:checked + .content {
+    max-height: 500px;
+}
+
+.view-more-label {
+    color: blue;
+    cursor: pointer;
+    display: block;
+    margin-top: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header .first-row {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 5% 2%;
+    }
+
+    header .first-row .login {
+        position: static;
+        margin-top: 10px;
+    }
+
+    header .second-row {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 3%;
+    }
+
+    header .second-row .navigation ul {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .landing h1 {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    .slider-container {
+        width: 90%;
+        left: 5%;
+    }
+
+    .images .image-row {
+        grid-template-columns: 1fr;
+        left: 0;
+        padding: 5%;
+    }
+
+    .direction {
+        grid-template-columns: 1fr;
+        height: auto;
+        padding: 5%;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+        height: auto;
+        padding: 5%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-btn {
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .prev, .next {
+        top: 95%;
+        padding: 5px;
+    }
+
+    .images .top-img {
+        grid-template-columns: 1fr;
+    }
+}
+
         </style>
     </head>
     <body>
